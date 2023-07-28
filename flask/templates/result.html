@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+    {% if error_message %}
+        <p>{{ error_message }}</p>
+    {% else %}
+        <p><strong>You said:</strong> {{ recognized_text }}</p>
+        <p><strong>English Meaning:</strong> {{ english_meaning }}</p>
+        <h2>Translated Meanings:</h2>
+        <ul>
+            {% for language, meaning in translated_meanings.items() %}
+                <li><strong>{{ language }}:</strong> {{ meaning }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <a href="/">Back to Search</a>
+</body>
+</html>
